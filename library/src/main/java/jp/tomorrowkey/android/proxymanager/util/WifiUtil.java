@@ -17,6 +17,10 @@ public final class WifiUtil {
     public static WifiConfiguration getCurrentWifiConfiguration(WifiManager wifiManager) {
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         List<WifiConfiguration> wifiConfigurationList = wifiManager.getConfiguredNetworks();
+        if (wifiConfigurationList == null) {
+            return null;
+        }
+
         for (WifiConfiguration wifiConfiguration : wifiConfigurationList) {
             if (TextUtils.equals(wifiConfiguration.SSID, connectionInfo.getSSID())) {
                 return wifiConfiguration;

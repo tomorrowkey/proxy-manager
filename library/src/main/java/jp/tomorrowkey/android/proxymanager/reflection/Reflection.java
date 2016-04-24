@@ -48,7 +48,7 @@ public class Reflection {
         this.clazz = clazz;
     }
 
-    public AbstractFieldReflection filed(String fieldName) {
+    public AbstractFieldReflection field(String fieldName) {
         try {
             if (hasReceiver()) {
                 return new FieldReflection(receiver, fieldName);
